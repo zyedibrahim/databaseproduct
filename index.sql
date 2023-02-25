@@ -1,6 +1,6 @@
 
-// first create a database mongodb
-use products 
+-- // first create a database mongodb
+use productsdatabase 
 
 
 db.products.insertMany([
@@ -182,36 +182,36 @@ db.products.insertMany([
     ])
 
 
-// Find all the information about each products
+-- // Find all the information about each products
 db.products.find({})
 
-// Find the product price which are between 400 to 800
+-- // Find the product price which are between 400 to 800
 db.products.find({product_price: {$gte:500,$lte:600}})
 
 
-// Find the product price which are not between 400 to 600
+-- // Find the product price which are not between 400 to 600
 db.products.find({product_price: {$ne:500,$ne:600}})
 
-// List the four product which are grater than 500 in price 
+-- // List the four product which are grater than 500 in price 
 db.products.find({product_price: {$gte:500}}).limit(4)
 
-// Find the product name and product material of each products
+-- // Find the product name and product material of each products
 db.products.find({},{_id:0,product_name:1,product_material:1})
 
-// Find the product with a row id of 10
+-- // Find the product with a row id of 10
 db.products.find({id:"10"})
 
-// Find only the product name and product material
+-- // Find only the product name and product material
 db.products.find({},{_id:0,product_name:1,product_material:1})
 
-// Find all products which contain the value of soft in product material 
+-- // Find all products which contain the value of soft in product material 
 db.products.find({product_material: {$eq:"Soft"}})
 
-// Find products which contain product color indigo  and product price 492.00
+-- // Find products which contain product color indigo  and product price 492.00
 db.products.find({product_color:{$eq:"indigo"},product_price:{$eq:492.00}  })
 
 
-// Delete the products which product price value are same
+-- // Delete the products which product price value are same
 db.products.deleteMany({ product_price: { $eq: 36 } })
 
 
